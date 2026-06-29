@@ -1,0 +1,19 @@
+# Core engine + proposal generation (required)
+python-pptx>=0.6.23
+PyYAML>=6.0
+
+# Web app (required to run app.py)
+streamlit>=1.30
+pandas>=2.0
+
+# Geolocation / Static Maps preview (optional, needs GOOGLE_MAPS_API_KEY)
+requests>=2.31
+
+# Vision extraction of bills (install at least one; optional in MOCK mode)
+anthropic>=0.39        # uses ANTHROPIC_API_KEY
+# openai>=1.40         # uses OPENAI_API_KEY (alternative provider)
+
+# PDF -> image rendering for bill extraction (pip-only, no system deps)
+pymupdf>=1.24
+# (Optional alternative: the system tool `pdftoppm` from Poppler —
+#  macOS: `brew install poppler`, Ubuntu: `apt-get install poppler-utils`)

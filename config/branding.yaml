@@ -1,0 +1,82 @@
+# ==========================================================================
+# Aspan Proposal Engine — Brand & Copy
+# Visual identity calibrated to the real Aspan Energy NESKAO offer deck.
+# All client-facing text is bilingual (FR / EN) and lives here.
+# ==========================================================================
+
+company:
+  name: "ASPAN ENERGY CI"
+  tagline_fr: "Zéro investissement  •  Économies garanties  •  Énergie propre"
+  tagline_en: "Zero investment  •  Guaranteed savings  •  Clean energy"
+  contact_name: "Abdoulaye OUATTARA"
+  contact_role_fr: "Directeur Général – ASPAN ENERGY CI"
+  contact_role_en: "Managing Director – ASPAN ENERGY CI"
+  contact_email: "abdoulaye@aspanenergy.com"
+  contact_address: "Cocody Bonoumin, Abidjan"
+  offer_validity_days: 90
+
+# Color palette (hex) — matched to the official Aspan Energy CI deck.
+# "Sandwich" layout: dark-green cover/closing, white content slides, mint cards.
+colors:
+  green: "0F3D24"        # deep forest green (cover/closing bg, headings, dark card)
+  green_dark: "1A2B22"   # near-black green
+  decor: "1C4F31"        # decorative background circles (slightly lighter green)
+  content_bg: "FFFFFF"   # white content slides
+  mint: "EDF6F0"         # light mint card background
+  border: "D9EBDF"       # subtle card border / soft green
+  number: "1B7A43"       # medium green for big stat numbers
+  gold: "F2B705"         # accent gold (NESKAO highlight, emphasis numbers)
+  muted: "5F6F66"        # muted gray-green body text
+  text_light: "FFFFFF"
+  warning: "B85042"      # terracotta (rare, for "current cost")
+
+fonts:
+  heading: "Cambria"     # serif headings (as in the reference deck)
+  body: "Calibri"        # sans body
+
+# Section copy used by the pptx builder. {placeholders} are filled at runtime.
+copy:
+  ppa_model:
+    title_fr: "Le modèle PPA ASPAN ENERGY"
+    title_en: "The ASPAN ENERGY PPA Model"
+    pillars:
+      - img: "image2.png"   # stacked coins
+        title_fr: "Zéro investissement"
+        title_en: "Zero investment"
+        body_fr: "100 % du financement porté par ASPAN ENERGY (études, équipements, travaux)."
+        body_en: "100% financed by ASPAN ENERGY (studies, equipment, works)."
+      - img: "image3.png"   # tools
+        title_fr: "Zéro charge d'exploitation"
+        title_en: "Zero operating cost"
+        body_fr: "Maintenance, assurance et monitoring inclus pendant {years} ans."
+        body_en: "Maintenance, insurance and monitoring included for {years} years."
+      - img: "image4.png"   # plug
+        title_fr: "Paiement à la consommation"
+        title_en: "Pay per consumption"
+        body_fr: "Facturation mensuelle des seuls kWh solaires livrés, compteur certifié."
+        body_en: "Monthly billing of solar kWh delivered only, certified meter."
+      - img: "image5.png"   # chart / discount
+        title_fr: "Remise garantie"
+        title_en: "Guaranteed discount"
+        body_fr: "Tarif solaire contractuellement inférieur de {discount} % au tarif de jour CIE."
+        body_en: "Solar tariff contractually {discount}% below the CIE day tariff."
+
+  services:
+    title_fr: "Prestations incluses pendant {years} ans"
+    title_en: "Services included for {years} years"
+    items:
+      - { img: "image8.png",  fr: "Études & ingénierie", en: "Studies & engineering", desc_fr: "Faisabilité, dimensionnement, ingénierie détaillée", desc_en: "Feasibility, sizing, detailed engineering" }
+      - { img: "image6.png",  fr: "Installation clé en main", en: "Turnkey installation", desc_fr: "Fourniture, travaux et mise en service, garanties constructeur", desc_en: "Supply, works and commissioning, manufacturer warranties" }
+      - { img: "image3.png",  fr: "Exploitation & maintenance", en: "Operation & maintenance", desc_fr: "Maintenance préventive et curative pendant tout le PPA", desc_en: "Preventive and corrective maintenance for the whole PPA" }
+      - { img: "image9.png",  fr: "Assurance tous risques", en: "All-risk insurance", desc_fr: "Couverture complète de l'installation", desc_en: "Full coverage of the installation" }
+      - { img: "image5.png",  fr: "Monitoring temps réel", en: "Real-time monitoring", desc_fr: "Suivi de production accessible au client", desc_en: "Production tracking accessible to the client" }
+      - { img: "image10.png", fr: "Comptage certifié", en: "Certified metering", desc_fr: "Mesure de l'énergie livrée, base de la facturation", desc_en: "Measurement of delivered energy, billing basis" }
+
+  next_steps:
+    title_fr: "Prochaines étapes"
+    title_en: "Next steps"
+    steps:
+      - { fr: "Audit énergétique et visite technique du site", en: "Energy audit and technical site visit" }
+      - { fr: "Analyse des 12 dernières factures CIE et calage du tarif contractuel", en: "Analysis of the last 12 CIE bills and contractual tariff setting" }
+      - { fr: "Signature du contrat PPA {years} ans", en: "Signature of the {years}-year PPA contract" }
+      - { fr: "Installation en 2 à 3 mois, mise en service et premières économies", en: "Installation in 2 to 3 months, commissioning and first savings" }

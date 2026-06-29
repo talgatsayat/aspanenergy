@@ -1,0 +1,83 @@
+# ==========================================================================
+# Aspan Proposal Engine — Engineering & Economic Assumptions
+# --------------------------------------------------------------------------
+# Every number that drives the financial proposal lives here, NOT in code.
+# An Aspan operator can tune these without touching Python.
+# Values calibrated against the real NESKAO 600 kWc offer + technical report.
+# ==========================================================================
+
+solar:
+  # Specific yield for Abidjan / Côte d'Ivoire (kWh produced per kWc per year).
+  # Source: Aspan NESKAO offer -> 600 kWc x 1450 = 870,000 kWh/yr.
+  yield_kwh_per_kwc: 1450
+
+  # Module electrical power (Watt-peak). NESKAO report: 1000 modules = 600 kWc.
+  module_power_wp: 600
+
+  # Physical area of one module (m2). ~2.38 x 1.13 m high-power mono panel.
+  module_area_m2: 2.58
+
+  # Packing factor = gross roof area required per m2 of physical panel.
+  # Covers inter-row spacing, walkways, obstacle setbacks, tilt & azimuth losses.
+  # Calibrated: NESKAO 5,149 m2 of roof -> ~600 kWc => factor ~2.0.
+  packing_factor: 2.0
+
+  # Annual production degradation (panels lose output over time).
+  annual_degradation: 0.005   # 0.5% / year
+
+sizing:
+  # Max PV (kWc) as a share of the grid connection (kVA) to avoid reverse
+  # power injection into the CIE grid. Self-consumption design.
+  max_pv_to_grid_ratio: 0.80
+
+  # Round the recommended system to the nearest X kWc for a clean proposal.
+  round_to_kwc: 10
+
+consumption:
+  # Share of total consumption that occurs during daylight (offsettable by PV).
+  # Calibrated from NESKAO CIE bills: (Jour + Pointe) / Total ~= 0.68.
+  daytime_share: 0.68
+
+tariffs:
+  currency: "FCFA"
+  currency_label: "FCFA HT"
+  # CIE day tariff (Jour) in FCFA/kWh HT — confirmed on NESKAO bills (83.87).
+  cie_day_tariff: 83.87
+  # Reference only (other CIE time-bands), used for context / bill parsing.
+  cie_peak_tariff: 106.56
+  cie_night_tariff: 72.92
+  # Annual tariff escalation (CIE prices tend to rise; Aspan keeps the discount).
+  annual_tariff_increase: 0.0
+
+ppa:
+  # Aspan solar tariff = CIE day tariff x (1 - discount). 20% guaranteed saving.
+  discount_vs_grid: 0.20
+  contract_years: 15
+
+diesel:
+  # Diesel generator marginal fuel cost (excludes maintenance & amortization).
+  fuel_price_fcfa_per_litre: 700
+  litres_per_kwh: 0.30
+  # => marginal cost ~= 700 * 0.30 = 210 FCFA/kWh
+
+finance:
+  # Discount rate for the Net Present Value of future savings (cost of capital).
+  discount_rate: 0.10
+  # Projected annual CIE tariff escalation used for the NPV / cashflow view.
+  # Solar keeps its discount, so rising grid prices grow the client's savings.
+  projection_tariff_escalation: 0.03
+  # CO2 intensity of the displaced grid/diesel mix (kg CO2 per kWh), for ESG note.
+  co2_kg_per_kwh: 0.55
+
+scenarios:
+  horizon_years: 15
+  scenario_1:
+    name_en: "Grid Replacement"
+    name_fr: "Substitution du réseau CIE"
+    grid_share: 1.0
+    diesel_share: 0.0
+  scenario_2:
+    name_en: "Grid + Diesel Operation"
+    name_fr: "Exploitation Réseau + Groupe"
+    grid_share: 0.50
+    diesel_share: 0.50
